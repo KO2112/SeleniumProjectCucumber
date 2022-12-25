@@ -1,6 +1,6 @@
 package com.example.sil;
-
 import gherkin.lexer.Th;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -24,12 +24,12 @@ public class link {
     public void test1() throws InterruptedException {
         WebElement cydeolink = driver.findElement(By.xpath("/html/body/div/div[3]/div/div/a"));
         System.out.println(cydeolink.getText());
-
         cydeolink.isDisplayed();
         driver.navigate().refresh();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         WebElement cydeolink2 = driver.findElement(By.xpath("/html/body/div/div[3]/div/div/a"));
         cydeolink2.isDisplayed();
+
     }
     @AfterAll
     public static void quitdriver(){

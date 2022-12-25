@@ -6,12 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
+import org.testng.TestListenerAdapter;
 
-public class TestCydeo {
+public class TestCydeo extends TestListenerAdapter {
     static WebDriver driver;
 
     @BeforeAll
-    public static void setDriver(){
+    public static void setDriver(ITestResult testResult){
+
         System.setProperty("chromedriver.exe", "C:\\Users\\kemal\\IdeaProjects\\sil\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -19,7 +22,7 @@ public class TestCydeo {
         driver.get("https://practice.cydeo.com/forgot_password");
     }
     @Test
-    public void locatedelements() throws InterruptedException{
+    public void locatedelements(ITestResult testResult) throws InterruptedException{
         boolean isokay = false;
         WebElement homelink = driver.findElement(By.className("nav-link"));
         homelink.isDisplayed();
@@ -44,7 +47,7 @@ public class TestCydeo {
 
     }
     @AfterAll
-    public static void driverQuit(){
+    public static void driverQuit(ITestResult testResult){
         driver.quit();
     }
 }
