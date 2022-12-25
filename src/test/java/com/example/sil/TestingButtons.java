@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestingButtons {
      static WebDriver driver;
-
     @BeforeAll
     public static void setDriver(){
         System.setProperty("chromedriver.exe","C:\\Users\\kemal\\IdeaProjects\\sil\\chromedriver.exe");
